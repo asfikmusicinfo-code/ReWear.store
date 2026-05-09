@@ -1,0 +1,588 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* 1. Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* 2. Force Poppins across the whole site */
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.r { 
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 13px; 
+  color: #1a1a1a; 
+  background: #f5f6fa; 
+  min-height: 100vh; 
+}
+
+
+  .r-header { background: #fff; border-bottom: 1px solid #eaeaea; padding: 12px 20px; }
+  .r-header-row { display: flex; align-items: center; gap: 14px; }
+  .r-logo { font-size: 26px; font-weight: 700; color: #111; letter-spacing: -0.5px; flex-shrink: 0; cursor: pointer; }
+  .r-logo span { color: #00c27a; }
+
+  .r-search-box { flex: 1; display: flex; height: 42px; border-radius: 8px; overflow: hidden; border: 2px solid #00c27a; }
+  .r-search-box input { flex: 1; border: none; padding: 0 14px; font-size: 13px; font-family: 'Inter', sans-serif; outline: none; color: #111; background: #fff; }
+  .r-search-btn { background: #00c27a; border: none; padding: 0 22px; font-size: 13px; font-weight: 600; color: #fff; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 6px; }
+
+  .r-header-btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .r-btn-outline { background: transparent; border: 1.5px solid #ddd; border-radius: 7px; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #444; cursor: pointer; font-family: 'Inter', sans-serif; }
+  .r-btn-green { background: #00c27a; border: none; border-radius: 7px; padding: 8px 16px; font-size: 12px; font-weight: 700; color: #fff; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 5px; }
+
+  .r-nav { background: #fff; border-bottom: 2px solid #eaeaea; display: flex; padding: 0 20px; gap: 2px; }
+  .r-nav a { color: #666; text-decoration: none; font-size: 13px; padding: 10px 14px; white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -2px; display: block; cursor: pointer; }
+  .r-nav a:hover { color: #111; }
+  .r-nav a.active { color: #00c27a; border-bottom-color: #00c27a; font-weight: 600; }
+
+  /* ── LISTING PAGE ── */
+ .r-body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  padding: 24px 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+  .r-sidebar { display: flex; flex-direction: column; gap: 10px; }
+  .r-post-btn { background: #00c27a; color: #fff; font-weight: 700; font-size: 13px; border: none; border-radius: 8px; padding: 13px; width: 100%; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+  .r-widget { background: #fff; border: 1px solid #eaeaea; border-radius: 10px; overflow: hidden; }
+  .r-widget-title { background: #f9fafb; color: #444; font-size: 11px; font-weight: 700; padding: 8px 14px; text-transform: uppercase; letter-spacing: 0.07em; border-bottom: 1px solid #eaeaea; }
+  .r-cat-list { list-style: none; }
+  .r-cat-item { border-bottom: 1px solid #f4f4f4; }
+  .r-cat-item a { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; color: #444; text-decoration: none; font-size: 13px; cursor: pointer; }
+  .r-cat-item a:hover { background: #f9fafb; color: #111; }
+  .r-cat-item.active a { color: #00a868; font-weight: 600; background: #f0fbf6; }
+  .r-cat-count { font-size: 11px; color: #bbb; background: #f4f4f4; padding: 2px 7px; border-radius: 10px; }
+
+  .r-filter-section { padding: 10px 14px; border-bottom: 1px solid #f4f4f4; }
+  .r-filter-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #bbb; margin-bottom: 8px; letter-spacing: 0.05em; }
+  .r-filter-section input[type=range] { width: 100%; accent-color: #00c27a; }
+  .r-filter-row { display: flex; justify-content: space-between; font-size: 11px; color: #ccc; margin-top: 4px; }
+  .r-check-list { display: flex; flex-direction: column; gap: 7px; }
+  .r-check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #555; cursor: pointer; }
+  .r-check input[type=checkbox] { accent-color: #00c27a; }
+
+  .r-main { display: flex; flex-direction: column; gap: 10px; }
+  .r-breadcrumb { background: #fff; border: 1px solid #eaeaea; border-radius: 8px; padding: 8px 14px; font-size: 12px; color: #bbb; display: flex; align-items: center; gap: 6px; }
+  .r-breadcrumb span { color: #00a868; font-weight: 500; cursor: pointer; }
+
+  .r-sell-strip { background: #f0fbf6; border: 1px solid #b3edd4; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .r-sell-strip p { font-size: 13px; color: #333; }
+
+  .r-results-bar { background: #fff; border: 1px solid #eaeaea; border-radius: 8px; padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; }
+  .r-results-count { font-size: 13px; color: #666; }
+  .r-results-count strong { color: #111; }
+  .r-sort { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #aaa; }
+  .r-sort select { font-size: 12px; border: 1px solid #e4e4e4; border-radius: 6px; padding: 5px 10px; color: #444; font-family: 'Inter', sans-serif; background: #fafafa; outline: none; }
+
+  .r-listings { display: flex; flex-direction: column; gap: 8px; }
+
+  .r-ad {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  /* Animation starting point */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Hover state remains same */
+.r-ad:hover {
+  border-color: #00c27a;
+  box-shadow: 0 2px 10px rgba(0,194,122,0.09);
+}
+
+/* The state triggered by scrolling */
+.r-ad.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+  .r-ad:hover { border-color: #00c27a; box-shadow: 0 2px 10px rgba(0,194,122,0.09); }
+  .r-ad-thumb {
+  width: 200px;
+  min-height: 200px;
+  flex-shrink: 0;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  border-right: 1px solid #f0f0f0;
+  position: relative;
+}
+  .r-featured { position: absolute; top: 8px; left: 8px; background: #00c27a; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+  .r-ad-body { flex: 1; padding: 12px 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; }
+  .r-ad-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+ .r-ad-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+  .r-ad-desc { font-size: 15px; color: #777; line-height: 1.55; }
+  .r-ad-fav { color: #ddd; font-size: 18px; cursor: pointer; flex-shrink: 0; }
+  .r-ad-fav:hover { color: #ff5c8a; }
+  .r-ad-price { font-size: 18px; font-weight: 700; color: #00a868; }
+  .r-ad-meta { display: flex; gap: 12px; font-size: 11.5px; color: #aaa; align-items: center; flex-wrap: wrap; }
+
+  .r-badge { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 5px; }
+  .r-bn { background: #edfaf5; color: #007a55; }
+  .r-bg { background: #e8f4fd; color: #1a5fa5; }
+  .r-bf { background: #fff5e0; color: #9a6a00; }
+
+  .r-pagination { background: #fff; border: 1px solid #eaeaea; border-radius: 8px; padding: 10px 14px; display: flex; justify-content: center; gap: 5px; }
+  .r-page { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid #e4e4e4; border-radius: 6px; font-size: 13px; color: #555; cursor: pointer; font-weight: 500; }
+  .r-page.active { background: #00c27a; color: #fff; border-color: #00c27a; }
+
+  /* ── DETAIL PAGE ── */
+  .r-detail-body { max-width: 940px; margin: 0 auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+  .r-detail-grid { display: grid; grid-template-columns: 1fr 320px; gap: 14px; align-items: start; }
+  .r-left { display: flex; flex-direction: column; gap: 12px; }
+  .r-right { display: flex; flex-direction: column; gap: 12px; }
+
+  .r-gallery { background: #fff; border: 1px solid #eaeaea; border-radius: 12px; overflow: hidden; }
+  .r-main-img { height: 300px; background: #f9fafb; display: flex; align-items: center; justify-content: center; font-size: 100px; border-bottom: 1px solid #f0f0f0; position: relative; }
+  .r-featured-tag { position: absolute; top: 14px; left: 14px; background: #00c27a; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 5px; }
+  .r-fav-btn { position: absolute; top: 14px; right: 14px; background: #fff; border: 1px solid #eaeaea; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #ccc; font-size: 18px; }
+  .r-thumbs { display: flex; gap: 10px; padding: 12px; }
+  .r-thumb { width: 60px; height: 60px; border-radius: 8px; background: #f0f2f8; border: 2px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; flex-shrink: 0; }
+  .r-thumb.active { border-color: #00c27a; background: #f0fbf6; }
+
+  .r-card { background: #fff; border: 1px solid #eaeaea; border-radius: 12px; padding: 18px; }
+  .r-card-title { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 12px; }
+
+  .r-detail-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #f4f4f4; font-size: 13px; }
+  .r-detail-row:last-child { border-bottom: none; }
+  .r-detail-label { color: #888; }
+  .r-detail-val { font-weight: 500; color: #111; }
+
+  .r-price-tag { font-size: 30px; font-weight: 700; color: #00a868; margin-bottom: 4px; }
+  .r-original-price { font-size: 13px; color: #bbb; text-decoration: line-through; margin-bottom: 2px; }
+  .r-savings { font-size: 12px; color: #00a868; font-weight: 600; margin-bottom: 14px; }
+  .r-item-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 5px; line-height: 1.4; }
+  .r-item-sub { font-size: 13px; color: #888; margin-bottom: 14px; }
+  .r-divider { border: none; border-top: 1px solid #f0f0f0; margin: 12px 0; }
+
+  .r-cta-btn { width: 100%; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px; }
+  .r-cta-primary { background: #00c27a; color: #fff; border: none; }
+  .r-cta-secondary { background: #fff; color: #111; border: 1.5px solid #ddd; }
+
+  .r-safety { background: #f9fafb; border-radius: 8px; padding: 10px 12px; font-size: 12px; color: #999; display: flex; gap: 8px; align-items: flex-start; margin-top: 4px; }
+  .r-safety i { color: #00c27a; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  .r-seller-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .r-avatar { width: 44px; height: 44px; border-radius: 50%; background: #edfaf5; color: #007a55; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .r-seller-name { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 2px; }
+  .r-seller-meta { font-size: 12px; color: #aaa; }
+  .r-stars { color: #f5a623; }
+
+  .r-seller-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .r-stat-box { background: #f9fafb; border-radius: 8px; padding: 10px; text-align: center; border: 1px solid #f0f0f0; }
+  .r-stat-num { font-size: 16px; font-weight: 700; color: #111; }
+  .r-stat-label { font-size: 11px; color: #aaa; margin-top: 2px; }
+
+  .r-view-profile { width: 100%; padding: 9px; border-radius: 8px; font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; background: #fff; color: #555; border: 1.5px solid #ddd; }
+
+  .r-related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .r-related-card { background: #fff; border: 1px solid #eaeaea; border-radius: 10px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+  .r-related-card:hover { border-color: #00c27a; }
+  .r-related-img { height: 80px; background: #f9fafb; display: flex; align-items: center; justify-content: center; font-size: 32px; border-bottom: 1px solid #f0f0f0; }
+  .r-related-info { padding: 8px 10px; }
+  .r-related-name { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .r-related-price { font-size: 13px; font-weight: 700; color: #00a868; }
+
+  .r-desc-text { font-size: 13px; color: #555; line-height: 1.7; }
+
+  /* page visibility */
+  .page { display: none; }
+  .page.active { display: block; }
+</style>
+
+  
+  <div class="r-header">
+    <div class="r-header-row">
+      <div class="r-logo" id="logo-btn">Re<span>wear</span></div>
+      <div class="r-search-box">
+        <input type="text" placeholder="Search clothes, shoes, accessories…" />
+        <button class="r-search-btn"><i class="ti ti-search" aria-hidden="true"></i> Search</button>
+      </div>
+      <div class="r-header-btns">
+        <button class="r-btn-outline">Log in</button>
+        <button class="r-btn-green"><i class="ti ti-plus" aria-hidden="true"></i> Post Ad</button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="r-nav">
+    <a class="active">All Clothes</a>
+    <a>Women's</a><a>Men's</a><a>Kids</a>
+    <a>Shoes</a><a>Accessories</a><a>Traditional Wear</a><a>Bags</a>
+  </nav>
+
+  <!-- LISTING PAGE -->
+  <div class="page active" id="page-listing">
+    <div class="r-body">
+      <aside class="r-sidebar">
+        <button class="r-post-btn"><i class="ti ti-plus" aria-hidden="true"></i> Post Your Ad — Free</button>
+        <div class="r-widget">
+          <div class="r-widget-title">Categories</div>
+          <ul class="r-cat-list">
+            <li class="r-cat-item active"><a>All Clothing <span class="r-cat-count">12,400</span></a></li>
+            <li class="r-cat-item"><a>Tops & T-shirts <span class="r-cat-count">3,210</span></a></li>
+            <li class="r-cat-item"><a>Pants & Jeans <span class="r-cat-count">2,880</span></a></li>
+            <li class="r-cat-item"><a>Dresses <span class="r-cat-count">2,140</span></a></li>
+            <li class="r-cat-item"><a>Saree & Salwar <span class="r-cat-count">1,740</span></a></li>
+            <li class="r-cat-item"><a>Outerwear <span class="r-cat-count">890</span></a></li>
+            <li class="r-cat-item"><a>Shoes <span class="r-cat-count">1,100</span></a></li>
+            <li class="r-cat-item"><a>Accessories <span class="r-cat-count">440</span></a></li>
+          </ul>
+        </div>
+        <div class="r-widget">
+          <div class="r-widget-title">Filter</div>
+          <div class="r-filter-section">
+            <div class="r-filter-label">Price (৳)</div>
+            <input type="range" min="0" max="5000" value="2500" />
+            <div class="r-filter-row"><span>৳ 0</span><span>৳ 5,000</span></div>
+          </div>
+          <div class="r-filter-section">
+            <div class="r-filter-label">Condition</div>
+            <div class="r-check-list">
+              <label class="r-check"><input type="checkbox" checked /> Like New</label>
+              <label class="r-check"><input type="checkbox" checked /> Good</label>
+              <label class="r-check"><input type="checkbox" /> Fair</label>
+            </div>
+          </div>
+          <div class="r-filter-section">
+            <div class="r-filter-label">Location</div>
+            <div class="r-check-list">
+              <label class="r-check"><input type="checkbox" checked /> Dhaka</label>
+              <label class="r-check"><input type="checkbox" /> Chittagong</label>
+              <label class="r-check"><input type="checkbox" /> Barishal</label>
+              <label class="r-check"><input type="checkbox" /> Chattorgram</label>
+              <label class="r-check"><input type="checkbox" /> Sylhet</label>
+              <label class="r-check"><input type="checkbox" /> Rajshahi</label>
+              <label class="r-check"><input type="checkbox" /> Khulna</label>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="r-main">
+        <div class="r-breadcrumb">Home › <span>Clothing</span> › All items</div>
+        <div class="r-sell-strip">
+          <p><strong>Have clothes to sell?</strong> List them for free and reach thousands of buyers across Bangladesh.</p>
+          <button class="r-btn-green"><i class="ti ti-plus" aria-hidden="true"></i> Post Free Ad</button>
+        </div>
+        <div class="r-results-bar">
+          <div class="r-results-count">Showing <strong>12,400</strong> ads in <strong>Clothing</strong></div>
+          <div class="r-sort">Sort by: <select><option>Newest first</option><option>Price: low to high</option><option>Price: high to low</option></select></div>
+        </div>
+
+        <div class="r-listings">
+          <!-- CLICKABLE SAREE -->
+          <div class="r-ad" id="saree-card">
+            <div class="r-ad-thumb">🥻<span class="r-featured">FEATURED</span></div>
+            <div class="r-ad-body">
+              <div class="r-ad-top">
+                <div>
+                  <div class="r-ad-title">Silk Saree — Barely Worn, Premium Quality</div>
+                  <div class="r-ad-desc">Beautiful handwoven silk saree, wore only once for a wedding. No stains, no damage. Original price ৳ 6,000.</div>
+                </div>
+                <span class="r-ad-fav"><i class="ti ti-heart" aria-hidden="true"></i></span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+                <div class="r-ad-price">৳ 1,800</div>
+                <div class="r-ad-meta">
+                  <span class="r-badge r-bn">Like New</span>
+                  <span><i class="ti ti-map-pin" aria-hidden="true"></i> Dhaka, Gulshan</span>
+                  <span><i class="ti ti-clock" aria-hidden="true"></i> 2 hours ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="r-ad">
+            <div class="r-ad-thumb">🧥</div>
+            <div class="r-ad-body">
+              <div class="r-ad-top"><div><div class="r-ad-title">H&M Denim Jacket — Size M</div><div class="r-ad-desc">Bought from Dhaka, used for one season. Still in great condition with no fading or tears.</div></div><span class="r-ad-fav"><i class="ti ti-heart" aria-hidden="true"></i></span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;"><div class="r-ad-price">৳ 750</div><div class="r-ad-meta"><span class="r-badge r-bg">Good</span><span><i class="ti ti-map-pin" aria-hidden="true"></i> Dhaka, Mirpur</span><span><i class="ti ti-clock" aria-hidden="true"></i> 5 hours ago</span></div></div>
+            </div>
+          </div>
+
+          <div class="r-ad">
+            <div class="r-ad-thumb">👗</div>
+            <div class="r-ad-body">
+              <div class="r-ad-top"><div><div class="r-ad-title">Floral Summer Dress — Size S / Free Size</div><div class="r-ad-desc">Lightweight cotton dress, perfect for summer. Worn twice. Good condition, washed and ready.</div></div><span class="r-ad-fav"><i class="ti ti-heart" aria-hidden="true"></i></span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;"><div class="r-ad-price">৳ 450</div><div class="r-ad-meta"><span class="r-badge r-bg">Good</span><span><i class="ti ti-map-pin" aria-hidden="true"></i> Chittagong</span><span><i class="ti ti-clock" aria-hidden="true"></i> Yesterday</span></div></div>
+            </div>
+          </div>
+
+          <div class="r-ad">
+            <div class="r-ad-thumb">👟</div>
+            <div class="r-ad-body">
+              <div class="r-ad-top"><div><div class="r-ad-title">Nike Air Sneakers — Size 42, White</div><div class="r-ad-desc">Authentic Nike sneakers, used about 10 times. Minor sole wear, uppers look brand new. Includes original box.</div></div><span class="r-ad-fav"><i class="ti ti-heart" aria-hidden="true"></i></span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;"><div class="r-ad-price">৳ 2,200</div><div class="r-ad-meta"><span class="r-badge r-bn">Like New</span><span><i class="ti ti-map-pin" aria-hidden="true"></i> Dhaka, Dhanmondi</span><span><i class="ti ti-clock" aria-hidden="true"></i> 2 days ago</span></div></div>
+            </div>
+          </div>
+
+          <div class="r-ad">
+            <div class="r-ad-thumb">👕</div>
+            <div class="r-ad-body">
+              <div class="r-ad-top"><div><div class="r-ad-title">Men's Polo Shirt Bundle (3 pcs) — Size L</div><div class="r-ad-desc">Selling 3 polo shirts together. All in fair condition. Great for everyday office or casual wear.</div></div><span class="r-ad-fav"><i class="ti ti-heart" aria-hidden="true"></i></span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;"><div class="r-ad-price">৳ 380</div><div class="r-ad-meta"><span class="r-badge r-bf">Fair</span><span><i class="ti ti-map-pin" aria-hidden="true"></i> Sylhet</span><span><i class="ti ti-clock" aria-hidden="true"></i> 3 days ago</span></div></div>
+            </div>
+          </div>
+
+          <div class="r-ad">
+            <div class="r-ad-thumb">👜</div>
+            <div class="r-ad-body">
+              <div class="r-ad-top"><div><div class="r-ad-title">Ladies Leather Handbag — Brown, Medium Size</div><div class="r-ad-desc">Genuine leather bag, used for 6 months. Minor scratch on handle, rest is perfect. Comes with dust bag.</div></div><span class="r-ad-fav"><i class="ti ti-heart" aria-hidden="true"></i></span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;"><div class="r-ad-price">৳ 1,100</div><div class="r-ad-meta"><span class="r-badge r-bg">Good</span><span><i class="ti ti-map-pin" aria-hidden="true"></i> Rajshahi</span><span><i class="ti ti-clock" aria-hidden="true"></i> 4 days ago</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-pagination">
+          <div class="r-page active">1</div>
+          <div class="r-page">2</div><div class="r-page">3</div>
+          <div class="r-page">4</div><div class="r-page">5</div>
+          <div class="r-page" style="border:none;color:#ccc;">…</div>
+          <div class="r-page">42</div>
+          <div class="r-page" style="width:auto;padding:0 12px;"><i class="ti ti-chevron-right" aria-hidden="true"></i></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- DETAIL PAGE -->
+  <div class="page" id="page-detail">
+    <div class="r-detail-body">
+      <div class="r-breadcrumb">
+        <span id="back-btn">Home</span> ›
+        <span id="back-btn2">Clothing</span> ›
+        Traditional Wear › Silk Saree — Barely Worn
+      </div>
+
+      <div class="r-detail-grid">
+        <div class="r-left">
+          <div class="r-gallery">
+            <div class="r-main-img">
+              🥻
+              <span class="r-featured-tag">FEATURED</span>
+              <div class="r-fav-btn"><i class="ti ti-heart" aria-hidden="true"></i></div>
+            </div>
+            <div class="r-thumbs">
+              <div class="r-thumb active">🥻</div>
+              <div class="r-thumb">🪡</div>
+              <div class="r-thumb">✨</div>
+              <div class="r-thumb">📦</div>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-title">Description</div>
+            <div class="r-desc-text">Beautiful handwoven silk saree, worn only once for a wedding ceremony. The fabric is in excellent condition — no stains, no snags, no damage of any kind.<br><br>Originally purchased for ৳ 6,000. Comes with original packaging. Deep burgundy with gold zari border work. Perfect for weddings, Eid, or any special occasion.<br><br>Selling because I already have too many sarees. Happy to answer questions before purchase.</div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-title">Item Details</div>
+            <div class="r-detail-row"><span class="r-detail-label">Category</span><span class="r-detail-val">Traditional Wear › Saree</span></div>
+            <div class="r-detail-row"><span class="r-detail-label">Condition</span><span class="r-badge r-bn">Like New</span></div>
+            <div class="r-detail-row"><span class="r-detail-label">Size</span><span class="r-detail-val">Free size (6 yards)</span></div>
+            <div class="r-detail-row"><span class="r-detail-label">Color</span><span class="r-detail-val">Burgundy with gold border</span></div>
+            <div class="r-detail-row"><span class="r-detail-label">Material</span><span class="r-detail-val">Silk</span></div>
+            <div class="r-detail-row"><span class="r-detail-label">Location</span><span class="r-detail-val">Dhaka, Gulshan</span></div>
+            <div class="r-detail-row"><span class="r-detail-label">Posted</span><span class="r-detail-val">2 hours ago</span></div>
+            <div class="r-detail-row"><span class="r-detail-label">Ad ID</span><span class="r-detail-val" style="color:#bbb;">#RW-291847</span></div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-title" style="margin-bottom:10px;">Similar listings</div>
+            <div class="r-related-grid">
+              <div class="r-related-card"><div class="r-related-img">👘</div><div class="r-related-info"><div class="r-related-name">Salwar Kameez</div><div class="r-related-price">৳ 650</div></div></div>
+              <div class="r-related-card"><div class="r-related-img">🪭</div><div class="r-related-info"><div class="r-related-name">Jamdani Saree</div><div class="r-related-price">৳ 2,400</div></div></div>
+              <div class="r-related-card"><div class="r-related-img">👗</div><div class="r-related-info"><div class="r-related-name">Bridal Lehenga</div><div class="r-related-price">৳ 3,200</div></div></div>
+              <div class="r-related-card"><div class="r-related-img">🧕</div><div class="r-related-info"><div class="r-related-name">Panjabi — Eid</div><div class="r-related-price">৳ 480</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-right">
+          <div class="r-card">
+            <div class="r-original-price">Original price ৳ 6,000</div>
+            <div class="r-price-tag">৳ 1,800</div>
+            <div class="r-savings">You save ৳ 4,200 (70% off)</div>
+            <div class="r-item-title">Silk Saree — Barely Worn, Premium Quality</div>
+            <div class="r-item-sub"><i class="ti ti-map-pin" style="font-size:12px" aria-hidden="true"></i> Dhaka, Gulshan · 2 hours ago</div>
+            <hr class="r-divider" />
+            <button class="r-cta-btn r-cta-primary"><i class="ti ti-message-circle" aria-hidden="true"></i> Contact Seller</button>
+            <button class="r-cta-btn r-cta-secondary"><i class="ti ti-tag" aria-hidden="true"></i> Make an Offer</button>
+            <div class="r-safety"><i class="ti ti-shield-check" aria-hidden="true"></i><span>Meet in a safe public place. Never send money before seeing the item in person.</span></div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-seller-header">
+              <div class="r-avatar">RK</div>
+              <div>
+                <div class="r-seller-name">Rumana Khanam</div>
+                <div class="r-seller-meta"><span class="r-stars">★★★★★</span> 4.9 · 38 reviews</div>
+              </div>
+            </div>
+            <div class="r-seller-stats">
+              <div class="r-stat-box"><div class="r-stat-num">24</div><div class="r-stat-label">Active ads</div></div>
+              <div class="r-stat-box"><div class="r-stat-num">112</div><div class="r-stat-label">Items sold</div></div>
+              <div class="r-stat-box"><div class="r-stat-num">98%</div><div class="r-stat-label">Response rate</div></div>
+              <div class="r-stat-box"><div class="r-stat-num">&lt;1hr</div><div class="r-stat-label">Reply time</div></div>
+            </div>
+            <button class="r-view-profile">View seller profile ↗</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showPage(id, pushState = true) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const targetPage = document.getElementById(id);
+    if (targetPage) targetPage.classList.add('active');
+    
+    window.scrollTo(0, 0);
+
+    if (pushState) {
+      history.pushState({pageId: id}, "", "#" + id);
+    }
+  }
+
+  // --- SEARCH BAR LOGIC ---
+const searchInput = document.querySelector('.r-search-box input');
+const searchBtn = document.querySelector('.r-search-btn');
+
+function performSearch() {
+  const query = searchInput.value.toLowerCase().trim();
+  const allCards = document.querySelectorAll('.r-ad');
+
+  // Loop through every card to see if it matches the search
+  allCards.forEach(card => {
+    const title = card.querySelector('.r-ad-title').innerText.toLowerCase();
+    const desc = card.querySelector('.r-ad-desc').innerText.toLowerCase();
+
+    // If the title or description contains the search word, show it. Otherwise, hide it.
+    if (title.includes(query) || desc.includes(query)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Automatically switch back to the listing page if the user is on a detail page
+  showPage('page-listing');
+}
+
+// Search when the button is clicked
+searchBtn.addEventListener('click', performSearch);
+
+// Search when the user presses "Enter" in the input field
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    performSearch();
+  }
+});
+
+  // --- THUMBNAIL CLICK LOGIC ---
+  // This finds every small thumbnail box in the detail page
+  document.querySelectorAll('#page-detail .r-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      // 1. Remove the "active" green border from all thumbnails
+      document.querySelectorAll('#page-detail .r-thumb').forEach(t => t.classList.remove('active'));
+      
+      // 2. Add the green border to the one you just clicked
+      thumb.classList.add('active');
+      
+      // 3. Get the emoji from the small box
+      const newImg = thumb.innerText;
+      
+      // 4. Update the big main image box with that emoji
+      const mainImgContainer = document.querySelector('#page-detail .r-main-img');
+      mainImgContainer.childNodes[0].textContent = newImg;
+    });
+  });
+
+  window.onpopstate = function(event) {
+    if (event.state && event.state.pageId) {
+      showPage(event.state.pageId, false);
+    } else {
+      showPage('page-listing', false);
+    }
+  };
+
+  // --- SCROLL FADE-IN LOGIC ---
+const observerOptions = {
+  threshold: 0.1 // Triggers when 10% of the item is visible
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+      // Stop observing once it has appeared
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Tell the observer to watch all product cards
+document.querySelectorAll('.r-ad').forEach(card => {
+  observer.observe(card);
+});
+
+  /**
+   * UPDATED DYNAMIC LOGIC
+   * Now also updates the thumbnail preview images
+   */
+  document.querySelectorAll('.r-ad').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.querySelector('.r-ad-title').innerText;
+      const price = card.querySelector('.r-ad-price').innerText;
+      const desc = card.querySelector('.r-ad-desc').innerText;
+      const img = card.querySelector('.r-ad-thumb').childNodes[0].textContent.trim();
+
+      // Update Main Content
+      document.querySelector('#page-detail .r-item-title').innerText = title;
+      document.querySelector('#page-detail .r-price-tag').innerText = price;
+      document.querySelector('#page-detail .r-desc-text').innerText = desc;
+      
+      // Update Main Big Emoji
+      const mainImgContainer = document.querySelector('#page-detail .r-main-img');
+      mainImgContainer.childNodes[0].textContent = img;
+
+      
+
+      // UPDATE THUMBNAILS
+      // This targets the first thumbnail (the one with the green border)
+      const firstThumb = document.querySelector('#page-detail .r-thumb.active');
+      if (firstThumb) {
+        firstThumb.innerText = img;
+      }
+
+      showPage('page-detail');
+    });
+  });
+
+  document.getElementById('logo-btn').addEventListener('click', () => showPage('page-listing'));
+  document.getElementById('back-btn').addEventListener('click', () => showPage('page-listing'));
+  document.getElementById('back-btn2').addEventListener('click', () => showPage('page-listing'));
+
+  history.replaceState({pageId: 'page-listing'}, "", "");
+</script>
